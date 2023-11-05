@@ -1,6 +1,12 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+
+    // KSP
+    id("com.google.devtools.ksp")
+
+    // Hilt
+    id("com.google.dagger.hilt.android")
 }
 
 android {
@@ -51,4 +57,13 @@ dependencies {
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
+
+    // KSP
+    // Hilt
+    implementation("com.google.dagger:hilt-android:2.48.1")
+    // Dagger compiler
+    ksp("com.google.dagger:dagger-compiler:2.48.1")
+    // Hilt compiler
+    ksp("com.google.dagger:hilt-compiler:2.48.1")
+
 }
