@@ -4,8 +4,8 @@ plugins {
 }
 
 android {
-    namespace = "hu.paulolajos.dev.features"
-    compileSdk = 34
+    namespace = "hu.paulolajos.dev.dashboard"
+    compileSdk = 33
 
     defaultConfig {
         minSdk = 24
@@ -38,22 +38,9 @@ dependencies {
     implementation("androidx.core:core-ktx:1.12.0")
     implementation("androidx.appcompat:appcompat:1.6.1")
     implementation("com.google.android.material:material:1.10.0")
-    implementation("androidx.constraintlayout:constraintlayout:2.1.4")
-
-    // Lifecycle
-    implementation("androidx.lifecycle:lifecycle-livedata-ktx:2.6.2")
-    implementation("androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.2")
-
-    // Navigation
-    implementation("androidx.navigation:navigation-fragment-ktx:2.7.5")
-    implementation("androidx.navigation:navigation-ui-ktx:2.7.5")
 
     // Test
     testImplementation("junit:junit:4.13.2")
     androidTestImplementation("androidx.test.ext:junit:1.1.5")
     androidTestImplementation("androidx.test.espresso:espresso-core:3.5.1")
-
-    implementation(project(":features:home"))
-    implementation(project(":features:dashboard"))
-    implementation(project(":features:notifications"))
 }

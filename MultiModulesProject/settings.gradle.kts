@@ -16,3 +16,6 @@ dependencyResolutionManagement {
 rootProject.name = "Multi Modules Project"
 include(":app")
 include(":features")
+include(":features:home")
+include(":features:dashboard")
+include(":features:notifications")
