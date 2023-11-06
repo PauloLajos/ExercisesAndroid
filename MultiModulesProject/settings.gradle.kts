@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Multi Modules Project"
 include(":app")
+include(":features")
