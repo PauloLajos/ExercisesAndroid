@@ -1,37 +1,62 @@
+import java.util.*
+
+val localProperties = Properties().apply {
+    load(rootProject.file(Constants.LOCAL_PROPERTIES).inputStream())
+}
+val baseUrl: String = localProperties.getProperty(Constants.BASE_URL) ?: Constants.EMPTY_STRING
+
 plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android.plugin)
 }
 
 android {
-    namespace = "hu.paulolajos.multimoduleswithversioncatalog"
-    compileSdk = 34
+    namespace = AppConfigs.namespace
+    compileSdk = AppConfigs.compileSdk
 
     defaultConfig {
-        applicationId = "hu.paulolajos.multimoduleswithversioncatalog"
-        minSdk = 24
-        targetSdk = 34
-        versionCode = 1
-        versionName = "1.0"
+        applicationId = AppConfigs.applicationId
+        minSdk = AppConfigs.minSdk
+        targetSdk = AppConfigs.targetSdk
+        versionCode = AppConfigs.versionCode
+        versionName = AppConfigs.versionName
 
-        testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner = AppConfigs.testInstrumentationRunner
+
+        buildConfigField(Constants.BASE_URL_TYPE, Constants.BASE_URL, "\"$baseUrl\"")
     }
 
     buildTypes {
         release {
             isMinifyEnabled = false
             proguardFiles(
-                getDefaultProguardFile("proguard-android-optimize.txt"),
-                "proguard-rules.pro"
+                getDefaultProguardFile(Constants.PROGUARD_ANDROID_OPTIMIZE),
+                Constants.PROGUARD_RULES
             )
         }
     }
+
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        //sourceCompatibility = JavaVersion.VERSION_1_8
+        //targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = AppConfigs.javaVersion
+        targetCompatibility = AppConfigs.javaVersion
     }
+
     kotlinOptions {
-        jvmTarget = "1.8"
+        //jvmTarget = "1.8"
+        jvmTarget = AppConfigs.jvmTarget
+    }
+
+    packaging {
+        resources {
+            excludes += Constants.EXCLUDES
+        }
+    }
+
+    buildFeatures {
+        buildConfig = true
+        viewBinding = true
     }
 }
 
