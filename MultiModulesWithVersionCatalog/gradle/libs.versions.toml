@@ -15,4 +15,6 @@ junit = { module = "junit:junit", version.ref = "junit" }
 material = { module = "com.google.android.material:material", version.ref = "material" }
 
 [plugins]
-
+android-application = "com.android.application:8.2.0"
+android-library = "com.android.library:8.2.0"
+kotlin-android-plugin = "org.jetbrains.kotlin.android:1.9.10"
