@@ -6,20 +6,16 @@ val localProperties = Properties().apply {
 val baseUrl: String = localProperties.getProperty(Constants.BASE_URL) ?: Constants.EMPTY_STRING
 
 plugins {
-    alias(libs.plugins.android.application)
+    alias(libs.plugins.android.library)
     alias(libs.plugins.kotlin.android.plugin)
 }
 
 android {
-    namespace = AppConfigs.namespace
+    namespace = "hu.paulolajos.dashboard"
     compileSdk = AppConfigs.compileSdk
 
     defaultConfig {
-        applicationId = AppConfigs.applicationId
         minSdk = AppConfigs.minSdk
-        targetSdk = AppConfigs.targetSdk
-        versionCode = AppConfigs.versionCode
-        versionName = AppConfigs.versionName
 
         testInstrumentationRunner = AppConfigs.testInstrumentationRunner
 
@@ -35,22 +31,18 @@ android {
             )
         }
     }
-
     compileOptions {
         sourceCompatibility = AppConfigs.javaVersion
         targetCompatibility = AppConfigs.javaVersion
     }
-
     kotlinOptions {
         jvmTarget = AppConfigs.jvmTarget
     }
-
     packaging {
         resources {
             excludes += Constants.EXCLUDES
         }
     }
-
     buildFeatures {
         buildConfig = true
         viewBinding = true
@@ -62,14 +54,9 @@ dependencies {
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.appcompat)
     implementation(libs.material)
-    implementation(libs.constraintlayout)
-    implementation(libs.androidx.navigation.ui.ktx)
-    implementation(libs.androidx.navigation.fragment.ktx)
+    implementation(libs.legacy.support.v4)
+    implementation(libs.lifecycle.livedata.ktx)
+    implementation(libs.lifecycle.viewmodel.ktx)
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
-    androidTestImplementation(libs.androidx.espresso.core)
-
-    implementation(project(":features:home"))
-    implementation(project(":features:dashboard"))
-    implementation(project(":features:notifications"))
-}
+    androidTestImplementation(libs.androidx.espresso.core)}

@@ -15,4 +15,6 @@ dependencyResolutionManagement {
 
 rootProject.name = "Multi modules with version catalog"
 include(":app")
- 
+include(":features:home")
+include(":features:dashboard")
+include(":features:notifications")

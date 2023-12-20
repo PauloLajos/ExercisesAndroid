@@ -8,6 +8,9 @@ material = "1.11.0"
 constraintlayout = "2.1.4"
 navigation-ui-ktx = "2.7.6"
 navigation-fragment-ktx = "2.7.6"
+legacy-support-v4 = "1.0.0"
+lifecycle-livedata-ktx = "2.6.2"
+lifecycle-viewmodel-ktx = "2.6.2"
 
 [libraries]
 androidx-appcompat = { module = "androidx.appcompat:appcompat", version.ref = "appcompat" }
@@ -19,8 +22,12 @@ material = { module = "com.google.android.material:material", version.ref = "mat
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation-ui-ktx" }
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation-fragment-ktx" }
+legacy-support-v4 = { group = "androidx.legacy", name = "legacy-support-v4", version.ref = "legacy-support-v4" }
+lifecycle-livedata-ktx = { group = "androidx.lifecycle", name = "lifecycle-livedata-ktx", version.ref = "lifecycle-livedata-ktx" }
+lifecycle-viewmodel-ktx = { group = "androidx.lifecycle", name = "lifecycle-viewmodel-ktx", version.ref = "lifecycle-viewmodel-ktx" }
 
 [plugins]
 android-application = "com.android.application:8.2.0"
 android-library = "com.android.library:8.2.0"
 kotlin-android-plugin = "org.jetbrains.kotlin.android:1.9.10"
+
