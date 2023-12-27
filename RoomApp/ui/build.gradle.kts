@@ -40,6 +40,8 @@ android {
 
 dependencies {
 
+    implementation(project(":data:room"))
+
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
