@@ -15,3 +15,8 @@ dependencyResolutionManagement {
 
 rootProject.name = "Room App"
 include(":app")
+include(":outermodule")
+include(":app:innermodule")
+include(":data:room")
+include(":utils")
+include(":ui")
