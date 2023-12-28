@@ -44,12 +44,11 @@ dependencies {
 
     implementation(project(":utils"))
 
-    implementation(libs.room.ktx)
-    implementation(libs.room.runtime)
-    ksp(libs.room.compiler)
-    ksp(libs.lifecycle.common)
+    implementation(libs.bundles.androidx.room.bundle)
+    ksp(libs.androidx.room.compiler)
 
     implementation(libs.lifecycle.viewmodel.ktx)
+    ksp(libs.lifecycle.common)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
