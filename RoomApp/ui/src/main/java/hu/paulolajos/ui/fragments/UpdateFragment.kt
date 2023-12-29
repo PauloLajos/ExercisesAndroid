@@ -22,7 +22,7 @@ class UpdateFragment : Fragment() {
 
     private val args by navArgs<UpdateFragmentArgs>()
 
-    private lateinit var mUserViewModel: UserViewModel
+    private lateinit var userViewModel: UserViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -31,7 +31,7 @@ class UpdateFragment : Fragment() {
         // Inflate the layout for this fragment
         _binding = FragmentUpdateBinding.inflate(inflater, container, false)
 
-        mUserViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(this).get(UserViewModel::class.java)
 
         binding.updateFirstNameEt.setText(args.currentUser.firstName)
         binding.updateLastNameEt.setText(args.currentUser.lastName)
@@ -52,7 +52,7 @@ class UpdateFragment : Fragment() {
             // Create User Object
             val updatedUser = User(args.currentUser.id, firstName,lastName, age)
             // Update Current User
-            mUserViewModel.updateUser(updatedUser)
+            userViewModel.updateUser(updatedUser)
             Toast.makeText(requireContext(),"Updated Successfully!", Toast.LENGTH_SHORT).show()
             // Navigate Back
             findNavController().navigate(R.id.action_updateFragment_to_listFragment)
