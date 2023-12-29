@@ -9,23 +9,35 @@ import kotlinx.coroutines.launch
 
 class UserViewModel(application: Application) : AndroidViewModel(application) {
     val readAllData: LiveData<List<User>>
-    private val repository: UserRepository
+    private val userRepository: UserRepository
 
     init {
         val userDao = UserDatabase.getDatabase(application).userDao()
-        repository = UserRepository(userDao)
-        readAllData = repository.readAlldata
+        userRepository = UserRepository(userDao)
+        readAllData = userRepository.readAlldata
     }
 
     fun addUser(user: User) {
         viewModelScope.launch(Dispatchers.IO){
-            repository.addUser(user)
+            userRepository.addUser(user)
         }
     }
 
     fun updateUser(user: User) {
         viewModelScope.launch(Dispatchers.IO) {
-            repository.updateUser(user)
+            userRepository.updateUser(user)
+        }
+    }
+
+    fun deleteUser(user: User) {
+        viewModelScope.launch {
+            userRepository.deleteUser(user)
+        }
+    }
+
+    fun deleteAll() {
+        viewModelScope.launch {
+            userRepository.deleteAll()
         }
     }
 }
