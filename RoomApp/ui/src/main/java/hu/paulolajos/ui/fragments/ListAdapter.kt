@@ -3,12 +3,12 @@ package hu.paulolajos.ui.fragments
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import hu.paulolajos.room.User
 import hu.paulolajos.ui.R
 import hu.paulolajos.ui.databinding.CustomRowBinding
-import org.w3c.dom.Text
 
 class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
@@ -34,16 +34,15 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val currentItem = userList[position]
         //TODO viewBinding!!!
-        holder.itemView.findViewById<View>(R.id.id_txt).text = currentItem.id.toString()
-        holder.itemView.firstName_txt.text = currentItem.firstName
-        holder.itemView.lastName_txt.text = currentItem.lastName
-        holder.itemView.age_txt.text = currentItem.age.toString()
+        holder.itemView.findViewById<TextView>(R.id.id_txt).text = currentItem.id.toString()
+        holder.itemView.findViewById<TextView>(R.id.firstName_txt).text = currentItem.firstName
+        holder.itemView.findViewById<TextView>(R.id.lastName_txt).text = currentItem.lastName
+        holder.itemView.findViewById<TextView>(R.id.age_txt).text = currentItem.age.toString()
 
-        holder.itemView.rowLayout.setOnClickListener {
+        holder.itemView.findViewById<View>(R.id.rowLayout).setOnClickListener {
             val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
             holder.itemView.findNavController().navigate(action)
         }
-
     }
 
     fun setData(users: List<User>) {
