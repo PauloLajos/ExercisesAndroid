@@ -7,6 +7,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.fragment.findNavController
@@ -36,8 +37,26 @@ class UpdateFragment : Fragment() {
         binding.updateFirstNameEt.setText(args.currentUser.firstName)
         binding.updateLastNameEt.setText(args.currentUser.lastName)
         binding.updateAgeEt.setText(args.currentUser.age.toString())
+
         binding.updateBtn.setOnClickListener {
             updateItem()
+        }
+
+        binding.deleteBtn.setOnClickListener {
+            val builder = AlertDialog.Builder(requireContext())
+            builder.setTitle("Deleting user alert")
+            builder.setMessage("Are you sure?")
+
+            builder.setPositiveButton("Yes") { dialog, which ->
+                deleteItem()
+            }
+
+            builder.setNegativeButton("No") { dialog, which ->
+                Toast.makeText(requireContext(),
+                    "User not deleted", Toast.LENGTH_SHORT).show()
+            }
+
+            builder.show()
         }
 
         return binding.root
@@ -59,6 +78,14 @@ class UpdateFragment : Fragment() {
         } else {
             Toast.makeText(requireContext(),"Please fill out all fields.", Toast.LENGTH_SHORT).show()
         }
+    }
+
+    private fun deleteItem() {
+        // Delete Current User
+        userViewModel.deleteUser(args.currentUser)
+        Toast.makeText(requireContext(),"Deleted Successfully!", Toast.LENGTH_SHORT).show()
+        // Navigate Back
+        findNavController().navigate(R.id.action_updateFragment_to_listFragment)
     }
 
     private fun inputCheck(firstName: String, lastName: String, age: Editable): Boolean {
