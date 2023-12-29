@@ -1,6 +1,7 @@
 package hu.paulolajos.ui
 
 import android.os.Bundle
+import androidx.activity.OnBackPressedCallback
 import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.AppBarConfiguration
@@ -16,7 +17,6 @@ class MainActivity : AppCompatActivity() {
     private val navController by lazy {
         val navHostFragment = supportFragmentManager
             .findFragmentById(R.id.nav_host_fragment) as NavHostFragment
-
         navHostFragment.navController
     }
 
@@ -29,6 +29,16 @@ class MainActivity : AppCompatActivity() {
 
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
+
+        onBackPressedDispatcher.addCallback(
+            this,
+            object: OnBackPressedCallback(true) {
+                override fun handleOnBackPressed() {
+                    if (!navController.popBackStack())
+                        finish()
+                }
+            }
+        )
     }
 
     override fun onSupportNavigateUp(): Boolean {

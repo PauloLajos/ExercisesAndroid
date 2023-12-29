@@ -47,11 +47,11 @@ class UpdateFragment : Fragment() {
             builder.setTitle("Deleting user alert")
             builder.setMessage("Are you sure?")
 
-            builder.setPositiveButton("Yes") { dialog, which ->
+            builder.setPositiveButton("Yes") { _, _ ->
                 deleteItem()
             }
 
-            builder.setNegativeButton("No") { dialog, which ->
+            builder.setNegativeButton("No") { _, _ ->
                 Toast.makeText(requireContext(),
                     "User not deleted", Toast.LENGTH_SHORT).show()
             }

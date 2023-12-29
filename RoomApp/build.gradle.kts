@@ -4,12 +4,5 @@ plugins {
     alias(libs.plugins.androidLibrary) apply false
     alias(libs.plugins.kotlinAndroid) apply false
     alias(libs.plugins.devtoolsKsp) apply false
-}
-buildscript {
-    repositories {
-        google()
-    }
-    dependencies {
-        classpath(libs.androidx.navigation.safe.args.gradle.plugin)
-    }
+    alias(libs.plugins.kotlin.parcelize) apply false
 }
