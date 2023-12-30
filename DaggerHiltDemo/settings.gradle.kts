@@ -15,3 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "Dagger Hilt Demo"
 include(":app")
+include(":featuresmodule")
