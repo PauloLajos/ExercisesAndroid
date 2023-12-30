@@ -1,12 +1,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
-
     // Ksp
-    //id ("com.google.devtools.ksp")
     alias(libs.plugins.devToolsKsp)
-    // Dagger Hilts
-    //id("dagger.hilt.android.plugin")
+    // Dagger Hilt
     alias(libs.plugins.dagger.hilt.plugin)
 }
 
@@ -40,6 +37,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -49,6 +49,7 @@ dependencies {
     implementation(libs.material)
     implementation(libs.constraintlayout)
 
+    // Hilt
     implementation(libs.hilt.android)
     // Use KSP for Dagger Hilt
     ksp(libs.hilt.compiler)

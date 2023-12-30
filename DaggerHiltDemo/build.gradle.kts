@@ -3,9 +3,9 @@ plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.kotlinAndroid) apply false
 
-    //id("com.google.devtools.ksp") version "1.9.20-1.0.14" apply false
+    // KSP
     alias(libs.plugins.devToolsKsp)
 
     // Dagger Hilt
-    id("com.google.dagger.hilt.android")  version "2.50" apply false
+    alias(libs.plugins.dagger.hilt.plugin)  version "2.50" apply false
 }

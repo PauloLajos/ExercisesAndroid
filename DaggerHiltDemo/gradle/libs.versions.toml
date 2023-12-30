@@ -1,7 +1,5 @@
 [versions]
 agp = "8.2.0"
-hilt-android = "2.50"
-hilt-compiler = "1.1.0"
 kotlin = "1.9.20"
 core-ktx = "1.12.0"
 junit = "4.13.2"
@@ -10,22 +8,27 @@ espresso-core = "3.5.1"
 appcompat = "1.6.1"
 material = "1.11.0"
 constraintlayout = "2.1.4"
+# hilt
+hilt-android = "2.50"
+hilt-compiler = "1.1.0"
 
 [libraries]
 androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hilt-compiler" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-android" }
 junit = { group = "junit", name = "junit", version.ref = "junit" }
 androidx-test-ext-junit = { group = "androidx.test.ext", name = "junit", version.ref = "androidx-test-ext-junit" }
 espresso-core = { group = "androidx.test.espresso", name = "espresso-core", version.ref = "espresso-core" }
 appcompat = { group = "androidx.appcompat", name = "appcompat", version.ref = "appcompat" }
 material = { group = "com.google.android.material", name = "material", version.ref = "material" }
 constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
+# hilt
+hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
+hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-android" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlin" }
 # ksp
 devToolsKsp = { id = "com.google.devtools.ksp", version = "1.9.20-1.0.14" }
+# hilt
 dagger-hilt-plugin = { id = "com.google.dagger.hilt.android", version = "2.50" }
