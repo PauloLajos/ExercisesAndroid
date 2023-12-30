@@ -1,6 +1,13 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+
+    // Ksp
+    //id ("com.google.devtools.ksp")
+    alias(libs.plugins.devToolsKsp)
+    // Dagger Hilts
+    //id("dagger.hilt.android.plugin")
+    alias(libs.plugins.dagger.hilt.plugin)
 }
 
 android {
@@ -41,6 +48,11 @@ dependencies {
     implementation(libs.appcompat)
     implementation(libs.material)
     implementation(libs.constraintlayout)
+
+    implementation(libs.hilt.android)
+    // Use KSP for Dagger Hilt
+    ksp(libs.hilt.compiler)
+    ksp(libs.androidx.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

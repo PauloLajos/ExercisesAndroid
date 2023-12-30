@@ -5,4 +5,7 @@ plugins {
 
     //id("com.google.devtools.ksp") version "1.9.20-1.0.14" apply false
     alias(libs.plugins.devToolsKsp)
+
+    // Dagger Hilt
+    id("com.google.dagger.hilt.android")  version "2.50" apply false
 }
