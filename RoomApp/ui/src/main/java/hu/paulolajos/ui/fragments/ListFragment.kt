@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavOptions
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import hu.paulolajos.room.UserViewModel
@@ -44,7 +45,8 @@ class ListFragment : Fragment() {
         }
 
         binding.floatingActionButton.setOnClickListener {
-            findNavController().navigate(R.id.action_listFragment_to_addFragment)
+            val navOptions = NavOptions.Builder().setLaunchSingleTop(true).build()
+            findNavController().navigate(R.id.action_listFragment_to_addFragment, null, navOptions)
         }
     }
 

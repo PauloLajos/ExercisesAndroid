@@ -3,6 +3,7 @@ plugins {
     alias(libs.plugins.androidApplication) apply false
     alias(libs.plugins.androidLibrary) apply false
     alias(libs.plugins.kotlinAndroid) apply false
-    alias(libs.plugins.devtoolsKsp) apply false
+    alias(libs.plugins.devToolsKsp) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
+    alias(libs.plugins.dagger.hilt.plugin) apply false
 }

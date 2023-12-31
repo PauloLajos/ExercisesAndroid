@@ -2,7 +2,9 @@ package hu.paulolajos.roomapp
 
 import android.app.Application
 import android.content.res.Configuration
+import dagger.hilt.android.HiltAndroidApp
 
+@HiltAndroidApp
 class MainApplication : Application() {
     // Called when the application is starting, before any other application objects have been created.
     // Overriding this method is totally optional!

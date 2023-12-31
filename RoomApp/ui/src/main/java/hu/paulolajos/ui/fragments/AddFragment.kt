@@ -20,7 +20,7 @@ class AddFragment : Fragment() {
     private var _binding: FragmentAddBinding? = null
     private val binding get() = _binding!!
 
-    private lateinit var mUserViewModel: UserViewModel
+    private lateinit var userViewModel: UserViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -34,7 +34,7 @@ class AddFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        mUserViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
+        userViewModel = ViewModelProvider(requireActivity()).get(UserViewModel::class.java)
 
         binding.addBtn.setOnClickListener {
             insertDataToDatabase()
@@ -50,7 +50,7 @@ class AddFragment : Fragment() {
             // Create User Object
             val user = User(0, firstName, lastName, Integer.parseInt(age.toString()))
             // Add Data to Database
-            mUserViewModel.addUser(user)
+            userViewModel.addUser(user)
             Toast.makeText(requireContext(), "successfully added!", Toast.LENGTH_LONG).show()
             // Navigate back
             findNavController().navigate(R.id.action_addFragment_to_listFragment)

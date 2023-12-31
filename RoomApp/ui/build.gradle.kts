@@ -1,7 +1,8 @@
 plugins {
     alias(libs.plugins.androidLibrary)
     alias(libs.plugins.kotlinAndroid)
-
+    alias(libs.plugins.devToolsKsp)
+    alias(libs.plugins.dagger.hilt.plugin)
     alias(libs.plugins.navigation.safeargs.kotlin)
 }
 
@@ -10,11 +11,7 @@ android {
     compileSdk = 34
 
     defaultConfig {
-        //applicationId = "hu.paulolajos.ui"
         minSdk = 28
-        //targetSdk = 34
-        //versionCode = 1
-        //versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -51,6 +48,11 @@ dependencies {
 
     implementation(libs.androidx.navigation.fragment.ktx)
     implementation(libs.androidx.navigation.ui.ktx)
+
+    // Hilt
+    implementation(libs.hilt.android)
+    ksp(libs.hilt.compiler)
+    ksp(libs.androidx.hilt.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

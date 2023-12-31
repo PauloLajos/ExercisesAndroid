@@ -2,6 +2,7 @@ package hu.paulolajos.ui.fragments
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
+import androidx.navigation.NavOptions
 import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
 import hu.paulolajos.room.User
@@ -37,7 +38,8 @@ class ListAdapter : RecyclerView.Adapter<ListAdapter.MyViewHolder>() {
 
             rowLayout.setOnClickListener {
                 val action = ListFragmentDirections.actionListFragmentToUpdateFragment(currentItem)
-                binding.root.findNavController().navigate(action)
+                val navOptions = NavOptions.Builder().setLaunchSingleTop(true).build()
+                binding.root.findNavController().navigate(action, navOptions)
             }
         }
     }
