@@ -16,3 +16,4 @@ dependencyResolutionManagement {
 rootProject.name = "GitHubRepo Livedata"
 include(":app")
 include(":ui")
+include(":data")

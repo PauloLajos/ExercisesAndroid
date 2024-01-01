@@ -4,7 +4,7 @@ plugins {
 }
 
 android {
-    namespace = "hu.paulolajos.ui"
+    namespace = "hu.paulolajos.data"
     compileSdk = 34
 
     defaultConfig {
@@ -36,12 +36,9 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
-    implementation(libs.constraintlayout)
 
-    implementation(libs.androidx.lifecycle.extensions)
-    implementation(libs.androidx.lifecycle.livedata.ktx)
-    implementation(libs.androidx.lifecycle.viewmodel.ktx)
-    implementation(libs.kotlinx.coroutines.android)
+    implementation(libs.retrofit)
+    implementation(libs.converter.gson)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
