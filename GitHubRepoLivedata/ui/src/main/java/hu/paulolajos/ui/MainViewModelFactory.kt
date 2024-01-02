@@ -1,10 +1,10 @@
 package hu.paulolajos.ui
 
 /**
- * As you can see from the code above we pass the respository to viewModel which will call for the
+ * As you can see from the code above we pass the Repository to ViewModel which will call for the
  * data from webservice.
  *
- * Please note that for passing parameter’s in viewmodel constructor we need to create
+ * Please note that for passing parameter’s in ViewModel constructor we need to create
  * ViewModel Factory.
  */
 
@@ -18,6 +18,5 @@ class MainViewModelFactory : ViewModelProvider.Factory {
         return MainViewModel(
             repository = GithubRepository()
         ) as T
-        throw IllegalArgumentException("Unknown ViewModel class")
     }
 }
