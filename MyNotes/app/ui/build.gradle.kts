@@ -7,11 +7,11 @@ plugins {
 }
 
 android {
-    namespace = "hu.paulolajos.mynotes"
+    namespace = "hu.paulolajos.ui"
     compileSdk = 34
 
     defaultConfig {
-        applicationId = "hu.paulolajos.mynotes"
+        applicationId = "hu.paulolajos.ui"
         minSdk = 28
         targetSdk = 34
         versionCode = 1
@@ -30,11 +30,14 @@ android {
         }
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_17
-        targetCompatibility = JavaVersion.VERSION_17
+        sourceCompatibility = JavaVersion.VERSION_1_8
+        targetCompatibility = JavaVersion.VERSION_1_8
     }
     kotlinOptions {
-        jvmTarget = "17"
+        jvmTarget = "1.8"
+    }
+    buildFeatures {
+        viewBinding = true
     }
 }
 
@@ -43,6 +46,8 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
+    implementation(libs.constraintlayout)
+    implementation(libs.androidx.viewbinding)
 
     // Hilt
     implementation(libs.hilt.android)
