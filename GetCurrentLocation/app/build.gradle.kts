@@ -35,6 +35,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -45,7 +48,17 @@ dependencies {
 
     // Hilt
     implementation(libs.dagger.hilt.android)
+    implementation(libs.constraintlayout)
     ksp(libs.dagger.hilt.compiler)
+
+    // Location
+    implementation(libs.play.services.location)
+
+    // Coroutines
+    implementation(libs.androidx.lifecycle.viewmodel.ktx)
+
+    // Fragments
+    implementation(libs.androidx.fragment.ktx)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
