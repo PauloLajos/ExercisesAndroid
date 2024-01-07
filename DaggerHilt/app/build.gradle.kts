@@ -2,6 +2,9 @@
 plugins {
     alias(libs.plugins.androidApplication)
     alias(libs.plugins.kotlinAndroid)
+
+    alias(libs.plugins.devToolsKsp)
+    alias(libs.plugins.dagger.hilt.plugin)
 }
 
 android {
@@ -34,6 +37,9 @@ android {
     kotlinOptions {
         jvmTarget = "1.8"
     }
+    buildFeatures {
+        viewBinding = true
+    }
 }
 
 dependencies {
@@ -41,6 +47,19 @@ dependencies {
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
+
+    // Hilt
+    implementation(libs.dagger.hilt.android)
+    implementation(libs.constraintlayout)
+    ksp(libs.dagger.hilt.compiler)
+
+    // Glide
+    implementation(libs.glide)
+
+    // ViewModels
+    implementation(libs.androidx.activity.ktx)
+    implementation(libs.lifecycle.viewmodel)
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
     androidTestImplementation(libs.espresso.core)
