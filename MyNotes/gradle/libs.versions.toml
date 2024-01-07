@@ -1,22 +1,23 @@
 [versions]
 agp = "8.2.1"
-kotlinPlugin = "1.9.22"
 core-ktx = "1.12.0"
 junit = "4.13.2"
 androidx-test-ext-junit = "1.1.5"
 espresso-core = "3.5.1"
 appcompat = "1.6.1"
+kotlinPlugin = "1.9.22"
 material = "1.11.0"
 ##
-constraintlayout = "2.1.4"
 lifecycle-ktx = "2.6.2"
 navigation = "2.7.6"
 androidx-room = "2.6.1"
+##
 kspPlugin = "1.9.22-1.0.16"
+##
 hiltPlugin = "2.50"
-hilt-android = "2.50"
-hilt-compiler = "1.1.0"
-androidx-constraintlayout-constraintlayout = "2.1.4"
+hiltCompiler = "1.1.0"
+
+constraintlayout = "2.1.4"
 viewbinding = "8.2.1"
 
 [libraries]
@@ -39,10 +40,14 @@ lifecycle-common = { module = "androidx.lifecycle:lifecycle-common", version.ref
 androidx-navigation-fragment-ktx = { group = "androidx.navigation", name = "navigation-fragment-ktx", version.ref = "navigation" }
 androidx-navigation-ui-ktx = { group = "androidx.navigation", name = "navigation-ui-ktx", version.ref = "navigation" }
 # hilt
-androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hilt-compiler" }
-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hilt-android" }
-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hilt-android" }
-constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "androidx-constraintlayout-constraintlayout" }
+dagger-hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltPlugin" }
+dagger-hilt-compiler = { module = "com.google.dagger:hilt-compiler", version.ref = "hiltPlugin" }
+
+#androidx-hilt-compiler = { module = "androidx.hilt:hilt-compiler", version.ref = "hiltCompiler" }
+#dagger-compiler = { module = "com.google.dagger:dagger-compiler", version.ref = "hiltPlugin" }
+#hilt-android-compiler = { module = "com.google.dagger:hilt-android-compiler", version.ref = "hiltPlugin" }
+##
+constraintlayout = { group = "androidx.constraintlayout", name = "constraintlayout", version.ref = "constraintlayout" }
 androidx-viewbinding = { group = "androidx.databinding", name = "viewbinding", version.ref = "viewbinding" }
 
 [plugins]
@@ -50,7 +55,8 @@ androidApplication = { id = "com.android.application", version.ref = "agp" }
 kotlinAndroid = { id = "org.jetbrains.kotlin.android", version.ref = "kotlinPlugin" }
 ##
 androidLibrary = { id = "com.android.library", version.ref = "agp" }
+##
 devToolsKsp = { id = "com.google.devtools.ksp", version.ref = "kspPlugin" }
+dagger-hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltPlugin" }
 navigation-safeargs-kotlin = { id = "androidx.navigation.safeargs.kotlin", version.ref = "navigation" }
 kotlin-parcelize = { id = "org.jetbrains.kotlin.plugin.parcelize",  version.ref = "kotlinPlugin"  }
-dagger-hilt-plugin = { id = "com.google.dagger.hilt.android", version.ref = "hiltPlugin" }

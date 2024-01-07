@@ -36,18 +36,28 @@ android {
     kotlinOptions {
         jvmTarget = "17"
     }
+    afterEvaluate {
+        tasks.withType(JavaCompile::class) {
+            options.compilerArgs.add("-Xlint:unchecked")
+            options.compilerArgs.add("-Xlint:deprecation")
+        }
+    }
 }
 
 dependencies {
+
+    implementation(project(":app:ui"))
 
     implementation(libs.core.ktx)
     implementation(libs.appcompat)
     implementation(libs.material)
 
     // Hilt
-    implementation(libs.hilt.android)
-    ksp(libs.hilt.compiler)
-    ksp(libs.androidx.hilt.compiler)
+    implementation(libs.dagger.hilt.android)
+    ksp(libs.dagger.hilt.compiler)
+    //ksp(libs.androidx.hilt.compiler)
+    //ksp(libs.dagger.compiler)
+    //ksp(libs.hilt.android.compiler)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

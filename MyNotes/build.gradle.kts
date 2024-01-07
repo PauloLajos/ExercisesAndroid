@@ -7,4 +7,5 @@ plugins {
     alias(libs.plugins.devToolsKsp) apply false
     alias(libs.plugins.kotlin.parcelize) apply false
     alias(libs.plugins.dagger.hilt.plugin) apply false
+    alias(libs.plugins.navigation.safeargs.kotlin) apply false
 }
